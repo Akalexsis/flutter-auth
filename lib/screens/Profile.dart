@@ -2,15 +2,43 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../firebase_options.dart';
+import '../service/Auth.dart';
+import './LandingPage.dart';
 
-class ProfilePage extends StatelessWidget {
-//   final String name;
-//   final String email;
-  // const ProfilePage({super.key, required this.name, required this.email});
-  const ProfilePage({super.key});
+class ProfilePage extends StatefulWidget {
+  final String name;
+  final String email;
+  const ProfilePage({super.key, required this.name, required this.email});
+
+  @override
+  State<ProfilePage> createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
+  // store values passed to page
+  late String name;
+  late String email;
+
+  final AuthService _authService = AuthService();
   
-  void _signOut() {
+  @override
+  void initState() {
+    name = widget.name;
+    email = widget.email;
+    super.initState();
+  }
 
+  // use service class sign-out method to signout user 
+  void _signOut() async {
+    await _authService.signOut();
+    
+    // redirect to home page
+      Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+          builder: (context) => LandingPage(),
+      ),
+    );
   }
 
   @override

@@ -40,12 +40,12 @@ class _RegisterPageState extends State<RegisterPage> {
     await _authService.register( email, password );
 
     // navigate to Profile Page
-    // Navigator.pushReplacement(
-    //   context,
-    //   MaterialPageRoute(
-    //       builder: (context) => ProfilePage(name: name, email: email),
-    //   ),
-    // );
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+          builder: (context) => ProfilePage(name: name, email: email),
+      ),
+    );
     
     _clearForm();
   }
