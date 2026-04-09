@@ -40,7 +40,7 @@ class LandingPage extends StatelessWidget {
                                 MaterialPageRoute( builder: (context) => LoginPage(),),
                             );
                         },
-                        style: ElevatedButton.styleFrom( backgroundColor: Colors.transparent ),
+                        style: ElevatedButton.styleFrom( backgroundColor: Colors.orange ),
                         child: Text('Login', style: TextStyle( fontSize: 18, color: Colors.white ), ),
                     ),
                 ]

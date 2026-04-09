@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import '../firebase_options.dart';
 import '../service/Auth.dart';
 import './LandingPage.dart';
+import './PasswordReset.dart';
 
 class ProfilePage extends StatefulWidget {
   final String email;
@@ -67,6 +68,20 @@ class _ProfilePageState extends State<ProfilePage> {
               ]
             ),
             SizedBox( height: 24 ),
+
+            // allow user to update current password
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.pushReplacement( context,
+                    MaterialPageRoute( builder: (context) => PasswordResetPage(), ),
+                  );
+                  
+                },
+
+                style: ElevatedButton.styleFrom( backgroundColor: Colors.white, ),
+                child: Text('Forgot Password?', style: TextStyle( fontSize: 12, color: Colors.orange ), ),
+              ),
+              SizedBox( height: 16 ),
 
             // implement signout button to end user session
             ElevatedButton(
