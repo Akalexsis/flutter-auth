@@ -6,9 +6,8 @@ import '../service/Auth.dart';
 import './LandingPage.dart';
 
 class ProfilePage extends StatefulWidget {
-  final String name;
   final String email;
-  const ProfilePage({super.key, required this.name, required this.email});
+  const ProfilePage({super.key, required this.email});
 
   @override
   State<ProfilePage> createState() => _ProfilePageState();
@@ -16,14 +15,11 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
   // store values passed to page
-  late String name;
   late String email;
-
   final AuthService _authService = AuthService();
   
   @override
   void initState() {
-    name = widget.name;
     email = widget.email;
     super.initState();
   }
@@ -63,11 +59,9 @@ class _ProfilePageState extends State<ProfilePage> {
                 SizedBox( width: 25 ),
                 Column(
                   children: [
-                    // Text('Profile page ${name}', style: TextStyle( fontSize: 24 ) ),
-                    // Text('${email}', style: TextStyle( fontSize: 18 ) ),
-                    Text('Name', style: TextStyle( fontSize: 24, ),  ),
+                    Text('Profile Name', style: TextStyle( fontSize: 24 ) ),
                     SizedBox( height: 12 ),
-                    Text('email', style: TextStyle( fontSize: 18 ) ),
+                    Text('${email}', style: TextStyle( fontSize: 18 ) ),
                   ]
                 ),
               ]

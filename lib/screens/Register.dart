@@ -36,14 +36,14 @@ class _RegisterPageState extends State<RegisterPage> {
         setState(() { isConfirmPasswordHidden = !isConfirmPasswordHidden; } );
     }
 
-  void _registerUser(String name, String email, String password) async {
+  void _registerUser(String email, String password) async {
     await _authService.register( email, password );
 
     // navigate to Profile Page
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
-          builder: (context) => ProfilePage(name: name, email: email),
+          builder: (context) => ProfilePage( email: email ),
       ),
     );
     
@@ -162,7 +162,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 onPressed: () {
                   // validate input before submitting form
                   if ( _key.currentState!.validate() ) {
-                    _registerUser( _nameController.text, _emailController.text, _passwordController.text );
+                    _registerUser( _emailController.text, _passwordController.text );
                   }
                 },
 
