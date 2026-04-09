@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import '../firebase_options.dart';
 import '../service/Auth.dart';
 import './Profile.dart';
+import './PasswordReset.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -108,6 +109,19 @@ class _LoginPageState extends State<LoginPage> {
                   else return null; // do nothing if input correct
                   },
                 ),
+                const SizedBox( height: 8 ),
+
+                // Link to password reset form
+                ElevatedButton(
+                onPressed: () {
+                  Navigator.pushReplacement( context,
+                    MaterialPageRoute( builder: (context) => PasswordResetPage(), ),
+                  );
+                },
+
+                style: ElevatedButton.styleFrom( backgroundColor: Colors.white, ),
+                child: Text('Forgot Password?', style: TextStyle( fontSize: 12, color: Colors.orange ), ),
+              ),
                 const SizedBox(height: 16),
 
 
