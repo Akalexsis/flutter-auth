@@ -40,12 +40,12 @@ class _RegisterPageState extends State<RegisterPage> {
     await _authService.register( email, password );
 
     // navigate to Profile Page
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(
-          builder: (context) => ProfilePage(name: name),
-      ),
-    );
+    // Navigator.pushReplacement(
+    //   context,
+    //   MaterialPageRoute(
+    //       builder: (context) => ProfilePage(name: name, email: email),
+    //   ),
+    // );
     
     _clearForm();
   }
@@ -170,7 +170,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   backgroundColor: Colors.orange,
                 ),
 
-                child: Text('Create Account', style: TextStyle( fontSize: 12, color: Colors.white ), ),
+                child: Text('Create Account', style: TextStyle( fontSize: 18, color: Colors.white ), ),
               ),
             ]
           ),

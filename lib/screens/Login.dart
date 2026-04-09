@@ -17,12 +17,14 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-    //   appBar: AppBar(
-    //     title: Text(widget.title),
-    //   ),
-      body: Center(
-        child: Text('Login page'),
-        ),
+      appBar: AppBar(
+        title: Text('Login', style: TextStyle( fontSize: 24, color: Colors.white ), ),
+        backgroundColor: Colors.orange,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Text('Login'),
+      ),
     );
   }
 }
